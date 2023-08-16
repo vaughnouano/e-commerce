@@ -1,0 +1,591 @@
+:root {
+  /* color */
+  --bg-clr: rgba(17, 16, 15, 1);
+  --bg-primary-accent-clr: rgba(23, 21, 20, 1);
+  --green-clr: rgba(0, 93, 55, 1);
+  --orange-clr: rgba(133, 51, 0, 1);
+
+  --ft-header-clr: rgba(198, 199, 188, 1);
+  --ft-primary-clr: rgba(173, 173, 173, 1);
+
+  --ft-family: "Montserrat", sans-serif;
+  /* Font-size */
+  --ft-header-700: 2.25rem;
+  --ft-header-secondary-700: 1.5rem;
+  --ft-header-background-700: 0;
+
+  --ft-primary-size-500: 0.825rem;
+  --ft-primary-size-600: 1rem;
+  --ft-secondary-size-600: 0.5rem;
+
+  --fw-regular: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+
+  --takata-logo-600: 1.25rem;
+  --icons: 1.25rem;
+
+  --fs-nav: 1.125rem;
+  --fs-footer: var(--ft-secondary-size-600);
+  --fs-button: var(--ft-primary-size-500);
+}
+
+@media (min-width: 56.25em) {
+  :root {
+    /* Font-size */
+    --ft-header-700: 4rem;
+    --ft-header-secondary-700: 2.5rem;
+    --ft-header-background-700: 12.5rem;
+
+    --ft-primary-size-500: 1rem;
+    --ft-primary-size-600: 1rem;
+    --ft-secondary-size-600: 1.125rem;
+
+    --fw-regular: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+
+    --takata-logo-600: 2.25rem;
+    --icons: 1.5rem;
+
+    --fs-nav: var(--ft-secondary-size-500);
+    --fs-footer: var(--ft-primary-size-600);
+  }
+}
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* scroll-bar */
+
+/* width */
+/* ::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.171);
+  border-radius: 4px;
+} */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* css debug */
+  /* background-color: rgba(0, 255, 157, 0.057); */
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"],
+li {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility classes */
+
+.text-header-700 {
+  font-size: var(--ft-header-700);
+  font-weight: var(--fw-bold);
+  color: var(--ft-header-clr);
+}
+.text-header-secondary-700 {
+  font-size: var(--ft-header-secondary-700);
+  font-weight: var(--fw-bold);
+  color: var(--ft-header-clr);
+}
+.text-header-background-700 {
+  font-size: var(--ft-header-background-700);
+  font-weight: var(--fw-bold);
+  color: var(--bg-clr);
+  background-color: var(--bg-primary-accent-clr);
+}
+
+.text-paragraph-600 {
+  font-size: var(--fs-footer);
+  font-weight: var(--fw-semi-bold);
+  color: var(--ft-primary-clr);
+}
+.text-paragraph-500 {
+  font-size: var(--ft-primary-size-500);
+  font-weight: var(--fw-regular);
+  color: var(--ft-primary-clr);
+}
+
+.text-button-500-btn {
+  font-size: var(--fs-button);
+  font-weight: var(--fw-regular);
+}
+
+.takata-logo-600 {
+  font-size: var(--takata-logo-600);
+  font-weight: var(--fw-semi-bold);
+  color: rgb(255, 255, 255);
+
+  cursor: default;
+}
+
+.icons {
+  font-size: var(--icons);
+  color: var(--ft-primary-clr);
+}
+
+body {
+  font-family: var(--ft-family);
+  background-color: var(--bg-clr);
+}
+
+/* ===============
+      navigation
+   =============== */
+.navigation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 3;
+  /* background-color: red; */
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.navigation ul,
+li {
+  display: flex;
+  padding: 1.5rem;
+}
+
+.fa-bars {
+  display: none;
+  font-size: var(--icons);
+  color: var(--ft-primary-clr);
+}
+
+.bars-icon {
+  display: flex;
+
+  cursor: pointer;
+}
+
+@media (max-width: 56.25em) {
+  .navigation {
+    padding: 1rem 0;
+  }
+
+  .navigation ul {
+    display: none;
+  }
+
+  .fa-magnifying-glass {
+    display: none;
+  }
+
+  .fa-bars {
+    display: block;
+    padding: 1.5rem 0;
+  }
+}
+
+/* ===============
+      TAKATA-bg
+   =============== */
+.TAKATA-bg {
+  position: absolute;
+  right: 0;
+  width: 40vw;
+  max-width: 700px;
+  max-height: 200px;
+  overflow: hidden;
+  padding: 28.8rem 0rem;
+  transform: rotate(0deg);
+  z-index: -1;
+}
+
+.TAKATA-text-bg {
+  position: absolute;
+  transform: rotate(90deg);
+  width: 120%;
+  overflow-x: hidden;
+  text-overflow: unset;
+}
+@media (max-width: 56.25em) {
+  .TAKATA-bg {
+    bottom: 0;
+    max-height: 100px;
+    width: 100vw;
+    padding: 10rem 0rem;
+    transform: rotate(0deg);
+    border-radius: 4px;
+  }
+}
+@media (max-width: 37.5em) {
+  .TAKATA-bg {
+    display: none;
+  }
+}
+
+/* ===============
+    first-container
+   =============== */
+.first-container {
+  position: relative;
+  height: 100%;
+  min-height: 700px;
+  max-width: 1600px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: rgba(255, 0, 0, 0.194); */
+}
+
+.first-container .items {
+  display: flex;
+  max-width: 800px;
+  max-height: 400px;
+  margin-inline: auto;
+  /* background-color: rgba(255, 0, 0, 0.352); */
+}
+
+header .text-header-700 {
+  padding-block-start: 2rem;
+}
+
+@media (max-width: 56.25em) {
+  .first-container {
+    max-height: 970px;
+    max-width: 700px;
+    align-items: baseline;
+    padding-top: 18vh;
+  }
+
+  .first-container .items {
+    flex-direction: column;
+    width: 500px;
+  }
+
+  .text-header-700 {
+    padding-block-start: 0;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .first-container {
+    max-height: 760px;
+    /* background-color: red; */
+  }
+
+  .first-container .items {
+    width: 300px;
+    max-height: 120px;
+    max-height: 370px;
+    flex-direction: column-reverse;
+  }
+}
+
+/* ===============
+      backpack
+   =============== */
+
+.backpack2 {
+  width: 28rem;
+  filter: contrast(100%) brightness(100%) saturate(100%);
+}
+
+@media (max-width: 56.25em) {
+  .backpack {
+    position: absolute;
+    top: 26vh;
+    width: 50%;
+    margin-left: 10rem;
+  }
+
+  .backpack2 {
+    width: 50%;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .backpack {
+    position: absolute;
+    top: 26vh;
+    width: 50%;
+    margin-left: 6rem;
+  }
+
+  .backpack2 {
+    width: 60%;
+    margin-inline: auto;
+  }
+}
+
+/* ===============
+texts-below-green-bg
+   =============== */
+.texts-below-green-bg .text-paragraph-500 {
+  position: absolute;
+  max-width: 22rem;
+  bottom: 6rem;
+  left: 8rem;
+}
+
+.green {
+  position: absolute;
+  background-color: var(--green-clr);
+  height: 140px;
+  width: 300px;
+  bottom: 4rem;
+  left: 0;
+  z-index: -1;
+  border-radius: 0px 4px 4px 0px;
+}
+@media (max-width: 56.25em) {
+  .texts-below-green-bg .text-paragraph-500 {
+    max-width: 18rem;
+    left: 1rem;
+  }
+
+  .green {
+    height: 130px;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .texts-below-green-bg .text-paragraph-500 {
+    max-width: 18rem;
+    left: 3rem;
+  }
+
+  .green {
+    width: 200px;
+  }
+}
+
+/* ===============
+  orange & gray-button
+   =============== */
+.gray-btn {
+  all: unset;
+
+  background-color: var(--bg-primary-accent-clr);
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semi-bold);
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  transition: 200ms;
+  color: var(--ft-primary-clr);
+
+  cursor: pointer;
+}
+
+.orange-btn {
+  all: unset;
+
+  background-color: var(--orange-clr);
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semi-bold);
+  padding: 0.5rem 1.5rem;
+  margin: 2rem 1rem;
+  border-radius: 4px;
+  transition: 200ms;
+  color: var(--ft-primary-clr);
+
+  cursor: pointer;
+}
+
+.gray-btn:hover,
+.gray-btn:focus,
+.orange-btn:hover,
+.orange-btn:focus {
+  filter: brightness(120%);
+}
+
+/* ===============
+   second-container
+   =============== */
+.second-container {
+  height: 100%;
+  min-height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  margin: 2rem;
+}
+
+.second-container .items {
+  position: relative;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 900px;
+}
+
+.second-container .text-paragraph-500 {
+  width: 22rem;
+  margin: 1rem 0;
+}
+
+.gray-behind-backpack2 {
+  position: absolute;
+  width: 26rem;
+  height: 25rem;
+  bottom: 0;
+  background-color: var(--bg-primary-accent-clr);
+  border-radius: 4px;
+}
+
+@media (max-width: 56.25em) {
+  .second-container .items {
+    flex-direction: column;
+  }
+
+  .gray-behind-backpack2 {
+    left: 50%;
+    top: 2%;
+    transform: translate(-50%, 0%);
+    width: 20%;
+    height: 20%;
+  }
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .second-container {
+    max-height: 700px;
+    margin: 2rem;
+  }
+
+  .second-container .text-paragraph-500 {
+    width: 19rem;
+    margin: 1rem 0;
+  }
+
+  .paragraph {
+    margin-top: 2.5rem;
+  }
+
+  .second-container .items {
+    flex-direction: column;
+  }
+
+  .gray-behind-backpack2 {
+    left: 50%;
+    top: 2%;
+    transform: translate(-50%, 0%);
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+/* ===============
+       footer
+   =============== */
+footer .third-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 8vh;
+  margin-inline: auto;
+  padding-inline: 2rem;
+  max-width: 1600px;
+}
+
+footer .inline-icons {
+  display: flex;
+}
+
+footer .icons {
+  margin-inline: 0.5rem;
+
+  cursor: pointer;
+}
+
+@media (max-width: 37.5em) {
+  footer p {
+    text-align: center;
+  }
+
+  footer .third-container {
+    /* background-color: red; */
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  footer .inline-icons {
+    display: flex;
+    margin: 1rem;
+    justify-content: center;
+    /* background-color: green; */
+  }
+}
